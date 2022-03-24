@@ -18,8 +18,9 @@ function App() {
         <Route path='sign-up' element={<SignUp/>}></Route>
         <Route path='forgot-password' element={<ForgotPassword/>}></Route>
         <Route path='/*' element={<Explore/>}></Route>
-
+       
       </Routes>
+      <div className='mb-[72px]'></div>
     </Router>
     </>
   );

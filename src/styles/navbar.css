@@ -1,15 +1,30 @@
-footer{
-    @apply w-full bg-white shadow-inner fixed left-0 bottom-0
+@keyframes navitem-anim {
+  0%{
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
 }
-.navbar{
-    @apply  px-4 py-1 flex justify-between items-center max-w-[700px] mx-auto;
+
+footer {
+  @apply w-full bg-white shadow-inner fixed left-0 bottom-0;
 }
-.navbar .nav-item{
-    @apply hover:bg-slate-200 transition-all rounded text-gray-500
+.navbar {
+  @apply px-4 py-1 flex justify-between items-center max-w-[768px] mx-auto;
 }
-.navbar .nav-item.active{
-    @apply text-black
+.navbar .nav-item {
+  @apply hover:bg-slate-200 transition-all rounded text-gray-300;
 }
-.navbar .nav-item .nav-link{
-    @apply flex flex-col justify-center items-center gap-2 p-2
+.navbar .nav-item.active {
+  @apply text-black;
+}
+.navbar .nav-item.active svg{
+  animation: navitem-anim .5s forwards;
+}
+.navbar .nav-item .nav-link {
+  @apply flex flex-col justify-center items-center gap-2 p-2;
 }
