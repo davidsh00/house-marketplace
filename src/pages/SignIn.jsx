@@ -42,6 +42,7 @@ function SignIn() {
             value={password}
             onChange={handleChange}
             required
+            autoComplete="current-password"
           ></input>
           <div className="input-icon">
             <FaLock />

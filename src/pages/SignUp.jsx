@@ -65,6 +65,7 @@ function SignUp() {
             value={password}
             onChange={handleChange}
             required
+            autoComplete="new-password"
           ></input>
           <div className="input-icon">
             <FaLock />
