@@ -17,7 +17,7 @@ footer {
   @apply px-4 py-1 flex justify-between items-center max-w-[768px] mx-auto;
 }
 .navbar .nav-item {
-  @apply hover:bg-slate-200 transition-all rounded text-gray-300;
+  @apply hover:bg-slate-200 transition-all rounded text-gray-500;
 }
 .navbar .nav-item.active {
   @apply text-black;

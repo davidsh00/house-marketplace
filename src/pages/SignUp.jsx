@@ -38,6 +38,7 @@ function SignUp() {
             id="name"
             value={name}
             onChange={handleChange}
+            required
           ></input>
           <div className="input-icon">
             <FaSignature />
@@ -50,6 +51,7 @@ function SignUp() {
             id="email"
             value={email}
             onChange={handleChange}
+            required
           ></input>
           <div className="input-icon">
             <FaAt />
@@ -62,6 +64,7 @@ function SignUp() {
             id="password"
             value={password}
             onChange={handleChange}
+            required
           ></input>
           <div className="input-icon">
             <FaLock />
@@ -75,13 +78,14 @@ function SignUp() {
             {showPassword ? <FaLowVision /> : <FaEye />}
           </div>
         </div>
-        <div className={`input-control ${showPassword ? "" : "hidden"}`}>
+        <div className={`input-control ${showPassword ? "hidden" : ""}`}>
           <input
-            type="text"
+            type="password"
             placeholder="Re Password"
             id="rePassword"
             value={rePassword}
             onChange={handleChange}
+            required={!showPassword}
           ></input>
           <div className="input-icon">
             <FaRetweet />

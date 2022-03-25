@@ -2,10 +2,10 @@
   @apply p-4 flex flex-col gap-4;
 }
 .sign-container form {
-  @apply max-w-[560px] w-full mx-auto flex flex-col gap-4;
+  @apply max-w-[560px] w-full mx-auto flex flex-col gap-4 items-start;
 }
 .sign-container .input-control {
-  @apply border  p-2 pl-8 rounded-2xl relative focus-within:outline focus-within:outline-green-500 bg-white;
+  @apply border  p-2 pl-8 rounded-2xl w-full relative focus-within:outline focus-within:outline-green-500 bg-white;
 }
 .sign-container .input-control input {
   @apply w-full outline-none;
@@ -14,9 +14,13 @@
   @apply absolute left-0 top-[50%] translate-y-[-50%] w-8 flex justify-center items-center h-full;
 }
 .sign-container .form-submit {
-  @apply inline-flex gap-2 justify-between items-center font-extrabold hover:bg-gray-200 p-3 rounded-xl w-full sm:justify-start sm:w-max;
+  @apply inline-flex gap-2 w-full sm:w-max items-center font-extrabold hover:bg-gray-200 p-3 rounded-xl;
   font-weight: bolder;
 }
+.sign-container .form-submit h2 {
+  @apply transition-all flex-grow sm:flex-grow-0 text-left;
+}
+
 .sign-container .form-submit .submit-icon {
   @apply flex justify-center items-center w-8 h-8 bg-green-500 text-white rounded-full text-xl;
 }

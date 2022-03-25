@@ -28,6 +28,7 @@ function SignIn() {
             id="email"
             value={email}
             onChange={handleChange}
+            required
           ></input>
           <div className="input-icon">
             <FaAt />
@@ -40,6 +41,7 @@ function SignIn() {
             id="password"
             value={password}
             onChange={handleChange}
+            required
           ></input>
           <div className="input-icon">
             <FaLock />
@@ -54,7 +56,7 @@ function SignIn() {
           </div>
         </div>
 
-        <Link to="/forgot-password" className="link text-right">
+        <Link to="/forgot-password" className="link w-full text-right">
           Forgot Password
         </Link>
 
