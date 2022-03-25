@@ -1,6 +1,13 @@
 import "./../styles/sign.css";
 import { useState } from "react";
 import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import {setDoc,doc,serverTimestamp}from 'firebase/firestore'
+import { db } from "../firebase.conf";
+import {
   FaAt,
   FaLock,
   FaEye,
@@ -9,8 +16,9 @@ import {
   FaSignature,
   FaRetweet,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function SignUp() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -26,10 +34,41 @@ function SignUp() {
       [e.target.id]: e.target.value,
     }));
   };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (!showPassword && password != rePassword) {
+      //toastify password dont match
+      console.log("passwords dont match!");
+      return null;
+    }
+    try {
+      const auth = getAuth();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+
+      const formDataCopy={...formData}
+      delete formDataCopy.password
+      delete formDataCopy.rePassword
+      formDataCopy.timeStamp=serverTimestamp()
+      console.log(formDataCopy)
+      await setDoc(doc(db,'users',user.uid),formDataCopy)
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="sign-container">
       <h1 className="font-extrabold">SignUp Form</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <h2 className="font-extrabold">Welcome</h2>
         <div className="input-control">
           <input

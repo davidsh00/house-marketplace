@@ -1,8 +1,10 @@
 import "./../styles/sign.css";
 import { useState } from "react";
 import { FaAt, FaLock, FaEye, FaLowVision, FaAngleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import {getAuth,signInWithEmailAndPassword}from 'firebase/auth'
 function SignIn() {
+  const navigate=useNavigate()
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -16,10 +18,23 @@ function SignIn() {
       [e.target.id]: e.target.value,
     }));
   };
+
+  const onSubmit=async(e)=>{
+    e.preventDefault()
+    try {
+      const auth=getAuth()
+      const userCredential=await signInWithEmailAndPassword(auth,email,password)
+      if(userCredential.user){
+        navigate('/')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className="sign-container">
       <h1 className="font-extrabold">LogIn Form</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <h2 className="font-extrabold">Welcome Back</h2>
         <div className="input-control">
           <input
