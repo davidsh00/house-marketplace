@@ -18,7 +18,9 @@ import {
   FaRetweet,
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { useErrorForToast } from "../hooks/useErrorForToast";
 function SignUp() {
+  const toastError=useErrorForToast
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -61,6 +63,7 @@ function SignUp() {
       await setDoc(doc(db, "users", user.uid), formDataCopy);
       navigate("/");
     } catch (error) {
+      toast.error(toastError(error))
       console.log(error);
     }
   };

@@ -18,6 +18,7 @@ function Profile() {
     e.preventDefault();
     try {
       await auth.signOut();
+      toast.info('you are LogedOut')
       navigate("/");
     } catch (error) {
       console.log(error);

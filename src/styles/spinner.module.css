@@ -1,0 +1,7 @@
+.container{
+    @apply w-screen h-screen flex justify-center items-center ;
+
+}
+.spinner{
+    @apply text-green-500 text-5xl transition-all animate-spin 
+}

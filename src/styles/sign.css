@@ -8,7 +8,7 @@
   @apply border  p-2 pl-8 rounded-2xl w-full relative focus-within:outline focus-within:outline-green-500 bg-white;
 }
 .sign-container .input-control input {
-  @apply w-full outline-none;
+  @apply w-full outline-none p-2;
 }
 .sign-container .input-control .input-icon {
   @apply absolute left-0 top-[50%] translate-y-[-50%] w-8 flex justify-center items-center h-full;

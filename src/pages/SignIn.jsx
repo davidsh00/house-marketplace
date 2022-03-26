@@ -3,7 +3,10 @@ import { useState } from "react";
 import { FaAt, FaLock, FaEye, FaLowVision, FaAngleRight } from "react-icons/fa";
 import { Link,useNavigate } from "react-router-dom";
 import {getAuth,signInWithEmailAndPassword}from 'firebase/auth'
+import { toast } from "react-toastify";
+import { useErrorForToast } from "../hooks/useErrorForToast";
 function SignIn() {
+  const toastError=useErrorForToast
   const navigate=useNavigate()
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,6 +31,7 @@ function SignIn() {
         navigate('/')
       }
     } catch (error) {
+      toast.error(toastError(error))
       console.log(error)
     }
   }
