@@ -1,11 +1,12 @@
 import "./../styles/sign.css";
+import { toast } from "react-toastify";
 import { useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import {setDoc,doc,serverTimestamp}from 'firebase/firestore'
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.conf";
 import {
   FaAt,
@@ -38,8 +39,7 @@ function SignUp() {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!showPassword && password != rePassword) {
-      //toastify password dont match
-      console.log("passwords dont match!");
+      toast.error("passwords dont match!");
       return null;
     }
     try {
@@ -54,12 +54,11 @@ function SignUp() {
         displayName: name,
       });
 
-      const formDataCopy={...formData}
-      delete formDataCopy.password
-      delete formDataCopy.rePassword
-      formDataCopy.timeStamp=serverTimestamp()
-      console.log(formDataCopy)
-      await setDoc(doc(db,'users',user.uid),formDataCopy)
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+      delete formDataCopy.rePassword;
+      formDataCopy.timeStamp = serverTimestamp();
+      await setDoc(doc(db, "users", user.uid), formDataCopy);
       navigate("/");
     } catch (error) {
       console.log(error);

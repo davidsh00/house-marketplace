@@ -43,6 +43,7 @@ function SignIn() {
             id="email"
             value={email}
             onChange={handleChange}
+            autoComplete='current-user'
             required
           ></input>
           <div className="input-icon">
