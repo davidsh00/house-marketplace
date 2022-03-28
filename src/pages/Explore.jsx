@@ -9,16 +9,16 @@ function Explore() {
 
       <div className="my-4">
         <h2 className="font-bold mb-2">Category</h2>
-        <div className="grid grid-cols-2 px-2 gap-4 ">
+        <div className="grid sm:grid-cols-2 px-2 gap-x-4 gap-y-8 ">
           <div>
-            <Link to='category/sell' className="hover:text-green-500 transition-all group" >
-              <img src={categorySellImage} alt="sell image"  className="rounded-xl mb-3 hover:filter filter-none grayscale transition-all delay-300 "/>
+            <Link to='category/sale' className="hover:text-green-500 transition-all group inline-block w-full" >
+              <img src={categorySellImage} alt="sell image"  className="rounded-xl mb-3 hover:filter filter-none grayscale transition-all  sm:max-h-[20rem] max-h-[10rem]"/>
               <p className="group-hover:translate-y-1 transition-all">Places for Sell</p>
             </Link>
           </div>
           <div>
-            <Link to='category/rent'  className="hover:text-green-500 transition-all group">
-              <img src={categoryRentImage} alt="rent image" className="rounded-xl mb-3 hover:filter filter-none grayscale transition-all delay-300 " />
+            <Link to='category/rent'  className="hover:text-green-500 transition-all group inline-block w-full">
+              <img src={categoryRentImage} alt="rent image" className="rounded-xl mb-3 hover:filter filter-none grayscale transition-all   sm:max-h-[20rem] max-h-[10rem] " />
               <p className="group-hover:translate-y-1 transition-all">Places for Rent</p>
             </Link>
           </div>
