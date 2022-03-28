@@ -1,9 +1,10 @@
 import { getAuth, updateProfile } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.conf";
-import {useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FaHome, FaAngleRight } from "react-icons/fa";
 function Profile() {
   const navigate = useNavigate();
   const auth = getAuth();
@@ -18,7 +19,7 @@ function Profile() {
     e.preventDefault();
     try {
       await auth.signOut();
-      toast.info('you are LogedOut')
+      toast.info("you are LoggedOut");
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -90,12 +91,26 @@ function Profile() {
                   id="email"
                   type="email"
                   value={email}
-                  disabled={!isChange}
+                  disabled
                   onChange={onChange}
                 />
               </div>
             </div>
           </form>
+          <div>
+            <Link
+              to="/create-listing"
+              className="shadow-lg p-4 flex justify-between items-center  text-2xl font-extrabold bg-white my-4 rounded-lg hover:bg-red-500 transition-all hover:text-white"
+            >
+              <div className="link-icon">
+                <FaHome />
+              </div>
+              <span>Sell or Rent your Home</span>
+              <div className="link-icon">
+                <FaAngleRight />
+              </div>
+            </Link>
+          </div>
         </div>
       </main>
     </>

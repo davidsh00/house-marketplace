@@ -9,20 +9,24 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import NavBar from "./components/NavBar";
+import CreateListing from "./pages/CreateListing";
+import Category from "./pages/Category";
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Explore />}></Route>
-          <Route path="/offers" element={<Offers />}></Route>
-          <Route path="/profile" element={<PrivateRoute/>}>
-            <Route path="/profile" element={<Profile/>} />
+          <Route path="/" element={<Explore />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/category/:type" element={<Category />} />
+          <Route path="/profile" element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
           </Route>
-          <Route path="sign-in" element={<SignIn />}></Route>
-          <Route path="sign-up" element={<SignUp />}></Route>
-          <Route path="forgot-password" element={<ForgotPassword />}></Route>
-          <Route path="/*" element={<Explore />}></Route>
+          <Route path="sign-in" element={<SignIn />} />
+          <Route path="sign-up" element={<SignUp />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="create-listing" element={<CreateListing />} />
+          <Route path="/*" element={<Explore />} />
         </Routes>
         <NavBar />
         <div className="mb-[72px]"></div>

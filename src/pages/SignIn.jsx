@@ -5,6 +5,7 @@ import { Link,useNavigate } from "react-router-dom";
 import {getAuth,signInWithEmailAndPassword}from 'firebase/auth'
 import { toast } from "react-toastify";
 import { useErrorForToast } from "../hooks/useErrorForToast";
+import Oauth from "../components/Oauth";
 function SignIn() {
   const toastError=useErrorForToast
   const navigate=useNavigate()
@@ -87,6 +88,7 @@ function SignIn() {
             <FaAngleRight />
           </div>
         </button>
+        <Oauth/>
       </form>
 
       <Link to="/sign-up" className="w-full inline-block link text-center">

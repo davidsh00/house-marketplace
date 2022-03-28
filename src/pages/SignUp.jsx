@@ -19,6 +19,7 @@ import {
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useErrorForToast } from "../hooks/useErrorForToast";
+import Oauth from "../components/Oauth";
 function SignUp() {
   const toastError=useErrorForToast
   const navigate = useNavigate();
@@ -140,6 +141,7 @@ function SignUp() {
             <FaAngleRight />
           </div>
         </button>
+        <Oauth/>
       </form>
 
       <Link to="/sign-in" className="w-full inline-block link text-center">
