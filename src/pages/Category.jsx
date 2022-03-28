@@ -48,7 +48,7 @@ function Category() {
   }, []);
 
   return (
-    <>
+    <div className="p-4">
       <h2 className="font-extrabold text-4xl">
         places for {params.type === "rent" ? "rent" : "sale"}
       </h2>
@@ -56,16 +56,16 @@ function Category() {
         <Spinner />
       ) : listings && listings.length >= 1 ? (
         <main>
-          <ul>
+          <ul className="font-bold text-2xl">
             {listings.map((listing) => (
-              <li key={listing.id}>{listing.data.type}</li>
+              <li key={listing.id}>its one item</li>
             ))}
           </ul>
         </main>
       ) : (
-        <p>no listings for {params.type}</p>
+        <p className="font-extrabold text-4xl">no listings for {params.type}</p>
       )}
-    </>
+    </div>
   );
 }
 
